@@ -6,34 +6,34 @@
 
 <h1>Welcome to the famous Dr. Sillystringz Factory!</h1>
 
-@* <h4>Engineer List</h4>
+<h4>Engineer List</h4>
 @if (Model.Engineer.Count == 0)
 {
-<h3>You do not have any active engineers in your database</h3>
+    <h3>You do not have any active engineers in your database</h3>
 }
 else
 {
-<ul>
-@foreach (Engineer engineer in engineers)
-{
-<li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = @engineer.EngineerId})</li>
-}
-</ul>
+    <ul>
+    @foreach (Engineer engineer in engineers)
+        {
+            <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = @engineer.EngineerId})</li>
+        }
+    </ul>
 }
 <h4>Machinery List</h4>
 @if (Model.Machine.Count == 0)
 {
-<h3>There are currently no machines listed in your inventory</h3>
+    <h3>There are currently no machines listed in your inventory</h3>
 }
 else
 {
-<ul>
-@foreach (Machine machine in machines)
-{
-<li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = @machine.MachineId})</li>
+    <ul>
+    @foreach (Machine machine in machines)
+        {
+            <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = @machine.MachineId})</li>
+        }
+    </ul>
 }
-</ul>
-} *@
 
 
 <p>@Html.ActionLink("See all Engineers", "Index", "Engineers")</p>

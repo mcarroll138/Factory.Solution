@@ -32,7 +32,7 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       Engineer thisEngineer = _db.Engineers
-                                  .Include(engineer => engineer.Machines)
+                                  .Include(engineer => engineer.Name)
                                   .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
