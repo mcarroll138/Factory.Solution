@@ -8,7 +8,7 @@ namespace Factory.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly FacotryContext _db;
+    private readonly FactoryContext _db;
     public HomeController(FactoryContext db)
     {
         _db = db;
@@ -17,7 +17,7 @@ public class HomeController : Controller
     public ActionResult Index()
     {
         List<Engineer> engineers = _db.Engineers.ToList();
-        List<Machine> machines = _db.Machines.ToList()
+        List<Machine> machines = _db.Machines.ToList();
 
 
         return View();
