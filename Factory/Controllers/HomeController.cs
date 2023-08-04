@@ -13,13 +13,15 @@ public class HomeController : Controller
     {
         _db = db;
     }
-
     public ActionResult Index()
     {
-        List<Engineer> engineers = _db.Engineers.ToList();
-        List<Machine> machines = _db.Machines.ToList();
-
 
         return View();
     }
+    // public ActionResult Index()
+    // {
+    //     List<Engineer> engineers = _db.Engineers.ToList();
+    //     List<Machine> machines = _db.Machines.ToList();
+    //     return View();
+
 }
