@@ -10,40 +10,34 @@ namespace Factory.Controllers
   public class MachinesController : Controller
   {
     private readonly FactoryContext _db;
-
     public MachinesController(FactoryContext db)
     {
       _db = db;
     }
     public ActionResult Index()
     {
-      List<Machine> model = _db.Machines
-                              .Include(machine => machine.Engineer)
-                              .ToList();
+      List<Machine> model = _db.Machines.ToList();
       return View(model);
     }
     public ActionResult Create()
     {
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Machine machine)
     {
-      if (machine.EngineerId == 0)
-      {
-        return RedirectToAction("Create");
-      }
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
+
     }
     public ActionResult Details(int id)
     {
       Machine thisMachine = _db.Machines
-                          .Include(machine => machine.Name)
-                          .FirstOrDefault(machine => machine.MachineId == id);
+                          .Include(machine => machine.JoinEntities)
+                          .ThenInclude(e => e.Engineer)
+                          .FirstOrDefault(m => m.MachineId == id);
       return View(thisMachine);
     }
     public ActionResult Edit(int id)
