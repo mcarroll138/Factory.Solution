@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Factory.Models
 {
@@ -8,6 +10,7 @@ namespace Factory.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public List<EngineerMachine> JoinEntities { get; set; }
+
+        public List<EngineerMachine> JoinEntities { get; }
     }
 }
