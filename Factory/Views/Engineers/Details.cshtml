@@ -22,16 +22,17 @@ else
 
   @foreach (EngineerMachine join in Model.JoinEntities)
     {
-      <li>@join.Engineer.Name </li>
+      <li>@join.Machine.Name </li>
     }
   </ul>
 }
-<p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Add a Machine this engineer is qualified to work on", "AddMachine", new { id = Model.EngineerId })
+</p>
 @Html.ActionLink("Home", "Index", "Home")
 <br>
-@Html.ActionLink("Add Machine", "Create", "Machines")
+@Html.ActionLink("Add Machine to inventory", "Create", "Machines")
 <br>
-@Html.ActionLink("Add Engineer", "Create", "Engineers")
+@Html.ActionLink("Add Engineer your list", "Create", "Engineers")
 
 
 
