@@ -7,28 +7,28 @@
 <h1>Welcome to the famous Dr. Sillystringz Factory!</h1>
 
 <h4>Engineer List</h4>
-@* @if (Model.Engineer.Count == 0)
+@* @if (ViewBag.Engineers.Count == 0)
 {
 <h3>You do not have any active engineers in your database</h3>
 }
 else
 {
 <ul>
-@foreach (Engineer engineer in engineers)
+@foreach (Engineer engineer in ViewBag.Engineers)
 {
 <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = @engineer.EngineerId})</li>
 }
 </ul>
-}
-<h4>Machinery List</h4>
-@if (Model.Machine.Count == 0)
+} *@
+@* <h4>Machinery List</h4>
+@if (ViewBag.Machines.Count == 0)
 {
 <h3>There are currently no machines listed in your inventory</h3>
 }
 else
 {
 <ul>
-@foreach (Machine machine in machines)
+@foreach (Machine machine in Model)
 {
 <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = @machine.MachineId})</li>
 }
