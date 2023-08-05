@@ -2,37 +2,36 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer;
+@model Factory.Models.Machine;
 @using Factory.Models;
 @using System.Collections.Generic;
 
-@* <h2>Engineer Details</h2>
+<h2>Machine Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)</h3>
 
-@if (@Model.Machines.Count == 0)
+@if (@Model.JoinEntities.Count == 0)
 {
-<p>This Engineer
-does not contain any Machines</p>
+  <p>This Machine does not contain qaulified engineers.</p>
 }
 else
 {
-<h4>Machines this engineer is qualified to work on:</h4>
-<ul>
+  <h4>Engineers qualified to work on this machine:</h4>
+  <ul>
 
-@foreach (Machine machine in Model.Machines)
-{
-<li>@machine.Description
-</li>
+  @foreach (EngineerMachine join in Model.JoinEntities)
+    {
+      <li>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId})
+      </li>
+    }
+  </ul>
 }
-</ul>
-} *@
 
 @Html.ActionLink("Home", "Index", "Home")
 <br>
 @Html.ActionLink("Add Machine", "Create", "Machines")
 <br>
-@Html.ActionLink("Add Engineer", "Create", "Engineers")
+@Html.ActionLink("Add Machine", "Create", "Machines")
 
 
 
