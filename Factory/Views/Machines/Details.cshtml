@@ -6,13 +6,16 @@
 @using Factory.Models;
 @using System.Collections.Generic;
 
-<h2>Machine Details</h2>
+<h1>Machine Details</h1>
 <hr />
 <h3>@Html.DisplayNameFor(m => m.Name) : @Html.DisplayFor(m => m.Name)</h3>
+<h3>@Html.DisplayNameFor(m => m.Description) : @Html.DisplayFor(m => m.Description)</h3>
 
 @if (@Model.JoinEntities.Count == 0)
 {
-  <p>This Machine does not contain qaulified engineers.</p>
+  <p>This Machine does not have any qualified engineers assigned to it. Would you like to
+  @Html.ActionLink("add an engineer?", "AddEngineer", "Machines")
+</p>
 }
 else
 {
@@ -31,7 +34,7 @@ else
 <br>
 @Html.ActionLink("Add Machine", "Create", "Machines")
 <br>
-@Html.ActionLink("Add Machine", "Create", "Machines")
+@Html.ActionLink("Delete Machine", "Delete", "Machines")
 
 
 

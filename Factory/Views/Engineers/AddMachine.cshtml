@@ -4,9 +4,9 @@
 
 @model Factory.Models.Engineer
 
-<h2>Assign an machine to an engineer</h2>
+<h2>Assign a machine to @Html.DisplayFor(model => model.Name)</h2>
 
-<h4>Assign an engineer to this machine: @Html.DisplayFor(model => model.Description)</h4>
+<br>
 
 @using (Html.BeginForm())
 {
@@ -17,5 +17,5 @@
 
   <input type="submit" value="Save" />
 }
-
+<p>@Html.ActionLink("Add a machine to your inventory", "Create", "Machines")</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
