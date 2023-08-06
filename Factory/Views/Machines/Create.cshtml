@@ -5,6 +5,8 @@
 @model Factory.Models.Machine
 
 <h4>Add a new machine</h4>
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger"})</p>
+<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger"})</p>
 
 @using (Html.BeginForm())
 {
