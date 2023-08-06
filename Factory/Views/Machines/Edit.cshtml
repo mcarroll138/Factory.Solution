@@ -2,15 +2,15 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer
+@model Factory.Models.Machine
 
 <h2>Edit</h2>
 
-<h4>Edit this engineer's information: @Html.DisplayFor(m => m.Name)</h4>
+<h4>Edit this machine's information: @Html.DisplayFor(m => m.Name)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(m => m.EngineerId)
+  @Html.HiddenFor(m => m.MachineId)
 
   @Html.LabelFor(m => m.Name)
   @Html.EditorFor(m => m.Name)

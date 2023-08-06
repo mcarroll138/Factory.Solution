@@ -4,37 +4,34 @@
 
 @using Factory.Models;
 
-<h1>Welcome to the famous Dr. Sillystringz Factory!</h1>
+<h1>Welcome to the Famous Dr. Sillystringz Factory!</h1>
 
 <h4>Engineer List</h4>
-@* @if (ViewBag.Engineers.Count == 0)
+@if (ViewBag.Engineers.Count == 0)
 {
-<h3>You do not have any active engineers in your database</h3>
+    <h3>You do not have any active engineers in your database</h3>
 }
 else
 {
-<ul>
-@foreach (Engineer engineer in ViewBag.Engineers)
-{
-<li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = @engineer.EngineerId})</li>
+    <ul>
+    @foreach (Engineer engineer in ViewBag.Engineers)
+        {
+            <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = @engineer.EngineerId})</li>
+        }
+    </ul>
 }
-</ul>
-} *@
-@* <h4>Machinery List</h4>
+<h4>Machinery List</h4>
 @if (ViewBag.Machines.Count == 0)
 {
-<h3>There are currently no machines listed in your inventory</h3>
+    <h3>There are currently no machines listed in your inventory</h3>
 }
 else
 {
-<ul>
-@foreach (Machine machine in Model)
-{
-<li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = @machine.MachineId})</li>
+    <ul>
+    @foreach (Machine machine in ViewBag.Machines)
+        {
+            <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = @machine.MachineId})</li>
+        }
+    </ul>
 }
-</ul>
-} *@
 
-
-<p>@Html.ActionLink("See all Engineers", "Index", "Engineers")</p>
-<p>@Html.ActionLink("See all Machinery", "Index", "Machines")</p>
