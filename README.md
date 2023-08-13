@@ -27,14 +27,13 @@ https://github.com/mcarroll138
 
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=factory_sql;uid=root;pwd=epicodus;",
-    "TestConnection": "Server=localhost;Port=3306;database=factory_sql;uid=root;pwd=epicodus;"
+    "DefaultConnection": "Server=localhost;Port=3306;database=[YOURDATABASENAME];uid=[YOURUSERNAME];pwd=[YOURPASSWORD];",
+    "TestConnection": "Server=localhost;Port=3306;database=[YOURDATABASENAME];uid=[YOURUSERNAME];pwd=[YOURPASSWORD];"
   }
 }
-- Open MySQL Workbench and use data import/restore to add the database to your system.
-- This will allow you to use the fatory_sql.sql file. 
-- NOTE: There is no sensitive material on this database, it has been used only to test the functionality.
-- Once this has been set up, navigate to the Factory directory and run $ dotnet watch run
+
+- Once this has been set up, navigate to the Factory directory and run $ dotnet ef database update to create a database
+- Then run $dotnet watch run to run the program
 - Once page loads, you will be at the Home Page where you can view both Engineers and Machinery. Using the Many to Many Relationships, you will be able to assign multiple engineers to multiple machines and vice versa. 
 
 ## Known Bugs

@@ -30,9 +30,7 @@ else
         @Html.Hidden("JoinId", @join.EngineerMachineId)
         <input type="submit" value="Delete" />
       }
-      @* <li>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Engineers", new { id = join.Engineer.EngineerId})
-  </li> *@
-    }
+}
   </ul>
 }
 
@@ -40,7 +38,9 @@ else
 <br>
 @Html.ActionLink("Add Machine", "Create", "Machines")
 <br>
-@Html.ActionLink("Delete Machine", "Delete", "Machines")
+@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })
+<br>
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
 
 
 
